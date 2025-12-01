@@ -1,108 +1,96 @@
-🎫 Sistema de Ticketing de Incidencias - LAB LIS
+# 🎫 Sistema de Ticketing de Incidencias - LAB LIS
 Proyecto final para la materia de Diseño y Programación Orientada a Objetos.
 
 Este sistema es una aplicación de consola desarrollada en Java diseñada para gestionar, rastrear y resolver fallas técnicas en los equipos de cómputo del Laboratorio (LAB LIS). Permite la interacción entre usuarios que reportan fallas y el personal técnico encargado de resolverlas.
 
 
-🚀 Características Principales
+## 🚀 Características Principales
 El sistema cumple con el ciclo de vida completo de una incidencia, incluyendo:
 
 
-Reporte de Incidencias: Los usuarios pueden reportar fallas clasificándolas por tipo (Hardware, Software, Red).
+* **Reporte de Incidencias:** Los usuarios pueden reportar fallas clasificándolas por tipo **(Hardware, Software, Red)**.
 
-Generación de Folios: Creación automática de IDs únicos (ej. HW-001, RED-005) basados en el tipo de falla.
 
-Roles de Usuario:
+* **Generación de Folios:** Creación automática de IDs únicos (ej. `HW-001`, `RED-005`) basados en el tipo de falla.
 
-Usuario: Reporta fallas indicando su matrícula, descripción y ubicación (Salón).
 
-Técnico: Visualiza sus tareas asignadas y actualiza el estado (En Proceso, Terminada).
+* **Roles de Usuario:**
 
-Gerente (Admin): Rol especial con permisos para asignar prioridades y distribuir el trabajo.
+  - **Usuario:** Reporta fallas indicando su matrícula, descripción y ubicación (Salón).
 
-Algoritmo de Asignación Inteligente: El sistema asigna automáticamente las incidencias a los técnicos basándose en dos criterios:
+  - **Técnico:** Visualiza sus tareas asignadas y actualiza el estado (En Proceso, Terminada).
 
-Especialidad: Un fallo de Red solo se asigna a un técnico de Red.
+  - **Gerente (Admin):** Rol especial con permisos para asignar prioridades y distribuir el trabajo.
 
-Nivel de Experiencia (Match de Prioridad):
 
-Prioridad BAJA → Técnicos JUNIOR.
+* **Algoritmo de Asignación Inteligente:** El sistema asigna automáticamente las incidencias a los técnicos basándose en dos criterios:
 
-Prioridad MEDIA → Técnicos SEMI-SENIOR.
+  1. Especialidad: Un fallo de Red solo se asigna a un técnico de Red.
 
-Prioridad ALTA → Técnicos SENIOR.
+  2. Nivel de Experiencia **(Match de Prioridad)**:
 
-Gestión de Estados: Control de flujo desde SIN_ASIGNAR → ASIGNADA → EN_PROCESO → TERMINADA.
+     * Prioridad **BAJA** → **Técnicos JUNIOR.**
 
-🛠️ Tecnologías y Conceptos Aplicados
-Lenguaje: Java (JDK 8+)
+     * Prioridad **MEDIA** → Técnicos **SEMI-SENIOR.**
 
-Paradigma: Programación Orientada a Objetos (POO).
+     + Prioridad **ALTA** → **Técnicos SENIOR.**
 
-Conceptos Clave:
 
-Herencia y Polimorfismo: Uso de clase abstracta Persona para Tecnico y Usuario.
+* **Gestión de Estados:** Control de flujo desde `SIN_ASIGNAR` → `ASIGNADA` → `EN_PROCESO → TERMINADA`.
 
-Encapsulamiento: Protección de datos sensibles mediante modificadores de acceso y Getters/Setters.
+## 🛠️ Tecnologías y Conceptos Aplicados
+### **Conceptos Clave:**
 
-Abstracción: Modelado de clases como Incidencia y GestionIncidencia.
+* **Herencia y Polimorfismo:** Uso de clase abstracta `Persona` para `Tecnico` y `Usuario`.
 
-Genéricos: Implementación de métodos de búsqueda reutilizables (<T extends Persona>).
+* **Encapsulamiento:**  Protección de datos sensibles mediante modificadores de acceso y Getters/Setters.
 
-Enums: Para el control estricto de tipos (TipoIncidencia, NivelTecnico, EstadoIncidencia, Salon).
+* **Abstracción:** Modelado de clases como `Incidencia` y `GestionIncidencia`.
 
-📋 Estructura del Proyecto
-Main.java: Punto de entrada y menús del sistema.
+* **Genéricos:** Implementación de métodos de búsqueda reutilizables (`<T extends Persona>`).
 
-GestionIncidencia.java: Controlador principal ("Cerebro" del sistema). Maneja las listas y la lógica de negocio.
+* **Enums:** Para el control estricto de tipos (`TipoIncidencia`, `NivelTecnico`, `EstadoIncidencia`, `Salon`).
 
-Incidencia.java: Modelo del ticket con contadores estáticos para IDs.
+## 📋 Estructura del Proyecto
+* **`Main.java`:** Punto de entrada y menús del sistema.
 
-Tecnico.java: Extiende de Persona. Incluye especialidad, nivel y lista de tareas propias.
+* **`GestionIncidencia.java`:** Controlador principal ("Cerebro" del sistema). Maneja las listas y la lógica de negocio.
 
-Usuario.java: Extiende de Persona. Representa al reportante.
+* **`Incidencia.java`:** Modelo del ticket con contadores estáticos para IDs.
 
-Persona.java: Clase padre abstracta.
+* **`Tecnico.java`:** Extiende de Persona. Incluye especialidad, nivel y lista de tareas propias.
 
-Enums: EstadoIncidencia, NivelTecnico, Prioridad, Salon, TipoIncidencia.
+* **`Usuario.java`:** Extiende de Persona. Representa al reportante.
 
-💻 Instrucciones de Ejecución
-Para correr el proyecto desde la terminal, sigue estos pasos:
+* **`Persona.java`:** Clase padre abstracta.
 
-Clonar o Descargar el proyecto.
+* **`Enums`:** `EstadoIncidencia`, `NivelTecnico`, `Prioridad`, `Salon`, `TipoIncidencia`.
 
-Compilar: Navega a la carpeta del código fuente (src) y ejecuta:
-
-Bash
-
-javac Main.java
-Ejecutar:
-
-Bash
-
-java Main
-🔐 Credenciales de Prueba
+ ## 🔐 Credenciales de Prueba
 El sistema inicia con datos precargados para facilitar las pruebas. Utiliza las siguientes matrículas para iniciar sesión en el menú de técnicos:
 
-1. Rol: Gerente (Administrador)
-Matrícula: TG100 (Antonio)
+1. **Rol: Gerente (Administrador)**
+   * Matrícula: `TG100` (Antonio)
 
-Permisos: Asignar prioridad y ejecutar la asignación automática.
-
-2. Rol: Técnico Senior (Hardware)
-Matrícula: TH201 (Teresa)
-
-Permisos: Resolver incidencias de prioridad ALTA.
-
-3. Rol: Técnico Semi-Senior (Hardware)
-Matrícula: TH202 (Omar)
-
-Permisos: Resolver incidencias de prioridad MEDIA.
-
-4. Rol: Técnico Junior (Hardware)
-Matrícula: TH203 (Katia)
-
-Permisos: Resolver incidencias de prioridad BAJA.
+   * Permisos: Asignar prioridad y ejecutar la asignación automática.
 
 
-Facultad de Contaduría y Administración, UV Coatzacoalcos
+2. **Rol: Técnico Senior (Hardware)**
+   * Matrícula: `TH201` (Teresa)
+
+   * Permisos: Resolver incidencias de prioridad ALTA.
+
+
+3. **Rol: Técnico Semi-Senior (Hardware)**
+   * Matrícula: `TH202` (Omar)
+
+   * Permisos: Resolver incidencias de prioridad MEDIA.
+
+
+4. **Rol: Técnico Junior (Hardware)**
+   * Matrícula: `TH203` (Katia)
+
+   * Permisos: Resolver incidencias de prioridad BAJA.
+
+
+**Facultad de Contaduría y Administración, UV Coatzacoalcos**
